@@ -1,0 +1,24 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "judul": "Promise",
+      "isi": "Rahman merupakan cowok yang berasal dari Jogja. Ia berwajah tampan namun berkepribadian sederhana dan lugu. Hal ini berkebalikan dengan sahabatnya yang bernama Aji. Aji, seorang cowok yang playboy namun setia kawan. Suatu hari, Aji ingin mengubah Rahman menjadi cowok yang dapat merasakan cinta dan berwawasan luas namun caranya salah."
+    },
+    {
+      "id": 2,
+      "judul": "Rumah Kaca",
+      "isi": "Rahman merupakan cowok yang berasal dari Jogja. Ia berwajah tampan namun berkepribadian sederhana dan lugu. Hal ini berkebalikan dengan sahabatnya yang bernama Aji. Aji, seorang cowok yang playboy namun setia kawan. Suatu hari, Aji ingin mengubah Rahman menjadi cowok yang dapat merasakan cinta dan berwawasan luas namun caranya salah."
+    },
+    {
+      "id": 3,
+      "judul": "Koala Kumal",
+      "isi": "Rahman merupakan cowok yang berasal dari Jogja. Ia berwajah tampan namun berkepribadian sederhana dan lugu. Hal ini berkebalikan dengan sahabatnya yang bernama Aji. Aji, seorang cowok yang playboy namun setia kawan. Suatu hari, Aji ingin mengubah Rahman menjadi cowok yang dapat merasakan cinta dan berwawasan luas namun caranya salah."
+    },
+    {
+      "id": 4,
+      "judul": "Cinta Suci",
+      "isi": "Rahman merupakan cowok yang berasal dari Jogja. Ia berwajah tampan namun berkepribadian sederhana dan lugu. Hal ini berkebalikan dengan sahabatnya yang bernama Aji. Aji, seorang cowok yang playboy namun setia kawan. Suatu hari, Aji ingin mengubah Rahman menjadi cowok yang dapat merasakan cinta dan berwawasan luas namun caranya salah."
+    }
+  ]
+}
