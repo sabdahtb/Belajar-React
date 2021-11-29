@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Home = ({ blogs, loads, fails }) => {
   return (
@@ -13,16 +14,18 @@ export const Home = ({ blogs, loads, fails }) => {
 
       {fails && (
         <div className="card">
-          <h1>404</h1>
-          <h3>Confusing to : {fails}</h3>
+          <h1>Failed</h1>
+          <h3>{fails}</h3>
         </div>
       )}
 
       {blogs &&
         blogs.map((blog) => (
           <div className="card" key={blog.id}>
-            <h2>{blog.judul}</h2>
-            <h5>klik untuk baca...</h5>
+            <Link to={`/blogs/${blog.id}`}>
+              <h2>{blog.judul}</h2>
+              <h5>klik untuk baca...</h5>
+            </Link>
           </div>
         ))}
     </div>

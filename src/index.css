@@ -52,8 +52,12 @@ body {
   padding: 10px;
   width: 400px;
   margin-bottom: 20px;
-  color: rgb(59, 59, 59);
   cursor: pointer;
+}
+
+.card a {
+  text-decoration: none;
+  color: rgb(59, 59, 59);
 }
 
 .card:hover {
@@ -63,4 +67,60 @@ body {
 
 .card h5 {
   color: crimson;
+}
+
+.det {
+  padding: 10px;
+  width: 400px;
+  color: rgb(59, 59, 59);
+}
+
+.det h5 {
+  color: crimson;
+}
+
+.add {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: crimson;
+}
+
+.add input {
+  padding: 5px 10px;
+  width: 400px;
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  outline: none;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
+.add textarea {
+  padding: 5px 10px;
+  width: 400px;
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  outline: none;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
+.add button {
+  display: block;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background-color: crimson;
+  color: aliceblue;
+  margin: 10px auto;
+  padding: 5px 20px;
+  cursor: pointer;
 }

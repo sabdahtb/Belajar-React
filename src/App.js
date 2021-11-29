@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Nav } from "./components/Nav";
 import { Home } from "./components/Home";
-import { Add } from "./components/Add";
 import { About } from "./components/About";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import Add from "./components/Add";
+import Details from "./components/Details";
+import api from "./api/blogs";
 
 function App() {
   const [blogs, setBlogs] = useState(null);
@@ -12,17 +13,20 @@ function App() {
   const [fails, setFails] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/blogs")
-      .then((res) => {
-        setBlogs(res.data);
-      })
-      .catch((err) => {
-        setFails(err.message);
-      })
-      .then(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await api.get("./blogs");
+        setBlogs(response.data);
         setLoads(false);
-      });
+        setFails(false);
+      } catch (error) {
+        setFails(error.message);
+        setLoads(false);
+        setBlogs(false);
+      }
+    };
+
+    fetchBlogs();
   }, []);
 
   return (
@@ -36,6 +40,7 @@ function App() {
           />
           <Route path="/add" element={<Add />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blogs/:id" element={<Details />} />
         </Routes>
       </Router>
     </div>
