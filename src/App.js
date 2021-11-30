@@ -1,35 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { Nav } from "./components/Nav";
 import { Home } from "./components/Home";
 import { About } from "./components/About";
 import Add from "./components/Add";
 import Details from "./components/Details";
-import api from "./api/blogs";
 import Edit from "./components/Edit";
+import Axiosxustom from "./hooks/Axiosxustom";
 
 function App() {
-  const [blogs, setBlogs] = useState(null);
-  const [loads, setLoads] = useState(true);
-  const [fails, setFails] = useState(false);
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await api.get("./blogs");
-        setBlogs(response.data);
-        setLoads(false);
-        setFails(false);
-      } catch (error) {
-        setFails(error.message);
-        setLoads(false);
-        setBlogs(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
+  const { blogs, fails, loads } = Axiosxustom("http://localhost:8000/blogs");
+  
   return (
     <div className="App">
       <Router>

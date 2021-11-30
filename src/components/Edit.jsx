@@ -53,7 +53,7 @@ export default function Edit() {
 
   return (
     <div className="add">
-      <h2 className="judul">Add a New Blogs</h2>
+      <h2 className="judul">Edit Blog</h2>
       <form onSubmit={handleSubmit}>
         <label>Judul</label>
         <input type="text" name="judul" value={judul} onChange={handleJudul} />
@@ -65,7 +65,7 @@ export default function Edit() {
           value={isi}
           onChange={handleIsi}
         ></textarea>
-        <button>Tambah</button>
+        <button>Edit</button>
       </form>
     </div>
   );

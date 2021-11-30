@@ -1,32 +1,16 @@
-import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import api from "../api/blogs";
+import Axiosxustom from "../hooks/Axiosxustom";
 
 export default function Details() {
-  const [blogs, setBlogs] = useState(null);
-  const [loads, setLoads] = useState(true);
-  const [fails, setFails] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await api.get("./blogs/" + id);
-        setBlogs(response.data);
-        setLoads(false);
-        setFails(false);
-      } catch (error) {
-        setFails(error.message);
-        setLoads(false);
-        setBlogs(false);
-      }
-    };
-
-    fetchBlogs();
-  }, [id]);
+  const { blogs, fails, loads } = Axiosxustom(
+    "http://localhost:8000/blogs/" + id
+  );
 
   const handleDelete = () => {
     Swal.fire({

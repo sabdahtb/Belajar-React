@@ -23,12 +23,12 @@ export default function Add() {
       await api.post("/blogs", body);
       setJudul("");
       setIsi("");
-      navigate("/");
       Swal.fire({
         icon: "success",
         title: "Berhasil menambahkan data!",
       });
       setTimeout(() => {
+        navigate("/");
         window.location.reload(true);
       }, 1500);
     } catch (error) {
