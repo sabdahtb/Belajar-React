@@ -6,6 +6,7 @@ import { About } from "./components/About";
 import Add from "./components/Add";
 import Details from "./components/Details";
 import api from "./api/blogs";
+import Edit from "./components/Edit";
 
 function App() {
   const [blogs, setBlogs] = useState(null);
@@ -41,6 +42,7 @@ function App() {
           <Route path="/add" element={<Add />} />
           <Route path="/about" element={<About />} />
           <Route path="/blogs/:id" element={<Details />} />
+          <Route path="/edit/:id" element={<Edit />} />
         </Routes>
       </Router>
     </div>
