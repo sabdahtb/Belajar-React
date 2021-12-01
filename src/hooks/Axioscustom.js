@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-const Axiosxustom = (dataUri) => {
+const Axioscustom = (dataUri) => {
   const [blogs, setBlogs] = useState(null);
   const [loads, setLoads] = useState(true);
   const [fails, setFails] = useState(false);
@@ -32,7 +32,7 @@ const Axiosxustom = (dataUri) => {
     fetchData(dataUri);
 
     const cleanUp = () => {
-      console.log("clean up function");
+      console.log("cleanup function data");
       isMounted = false;
       source.cancel();
     };
@@ -43,4 +43,4 @@ const Axiosxustom = (dataUri) => {
   return { blogs, fails, loads };
 };
 
-export default Axiosxustom;
+export default Axioscustom;

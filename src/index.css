@@ -41,111 +41,93 @@ body {
 }
 
 .components {
-  margin: 30px;
-}
-
-.judul {
-  margin-bottom: 20px;
+  width: 100%;
+  padding: 30px;
+  color: rgb(41, 41, 41);
 }
 
 .card {
-  padding: 10px;
   width: 400px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
   cursor: pointer;
-}
-
-.card a {
-  text-decoration: none;
-  color: rgb(59, 59, 59);
-}
-
-.card:hover {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .card h5 {
   color: crimson;
 }
 
+.card a {
+  text-decoration: none;
+  color: rgb(41, 41, 41);
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
 .det {
-  padding: 10px;
-  width: 400px;
-  color: rgb(59, 59, 59);
-}
-
-.det h5 {
-  color: crimson;
-}
-
-.add {
+  margin: auto;
   text-align: center;
-  margin-top: 20px;
+  width: 400px;
 }
 
-.add label {
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
+.det h2 {
   color: crimson;
+  margin-bottom: 20px;
 }
 
-.add input {
-  padding: 5px 10px;
-  width: 400px;
-  font-size: 16px;
-  font-family: "Nunito", sans-serif;
-  outline: none;
-  border: 2px solid grey;
-  border-radius: 5px;
-}
-
-.add textarea {
-  padding: 5px 10px;
-  width: 400px;
-  font-size: 16px;
-  font-family: "Nunito", sans-serif;
-  outline: none;
-  border: 2px solid grey;
-  border-radius: 5px;
-}
-
-.add button {
-  display: block;
-  font-size: 16px;
+.det button {
+  padding: 3px 20px;
+  color: aliceblue;
   outline: none;
   border: none;
   border-radius: 3px;
-  background-color: crimson;
-  color: aliceblue;
-  margin: 10px auto;
-  padding: 5px 20px;
+  margin: 10px;
   cursor: pointer;
-}
-
-.edit {
-  font-size: 16px;
-  outline: none;
-  border: none;
-  border-radius: 3px;
-  background-color: darkorange;
-  color: aliceblue;
-  margin: 10px auto;
-  padding: 5px 20px;
-  cursor: pointer;
-  margin-right: 10px;
 }
 
 .hapus {
+  background-color: crimson;
+}
+
+.edit {
+  background-color: darkorange;
+}
+
+.formTambah {
+  text-align: center;
+  width: 400px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.formTambah label {
+  display: block;
   font-size: 16px;
+  font-weight: 600;
+  margin: 10px auto;
+}
+
+.formTambah input,
+textarea {
+  width: 100%;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid gray;
+  font-family: "Nunito", sans-serif;
+}
+
+.formTambah button {
+  padding: 5px 20px;
+  color: aliceblue;
   outline: none;
   border: none;
   border-radius: 3px;
-  background-color: crimson;
-  color: aliceblue;
-  margin: 10px auto;
-  padding: 5px 20px;
+  margin: 10px;
   cursor: pointer;
+  background-color: teal;
 }

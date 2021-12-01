@@ -1,15 +1,51 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Nav } from "./components/Nav";
-import { Home } from "./components/Home";
-import { About } from "./components/About";
+import About from "./components/About";
 import Add from "./components/Add";
-import Details from "./components/Details";
+import Detail from "./components/Detail";
+import Home from "./components/Home";
+import Nav from "./components/Nav";
+import Axioscustom from "./hooks/Axioscustom";
+import api from "./api/blogs";
+import { useState } from "react";
+import Swal from "sweetalert2";
 import Edit from "./components/Edit";
-import Axiosxustom from "./hooks/Axiosxustom";
 
 function App() {
-  const { blogs, fails, loads } = Axiosxustom("http://localhost:8000/blogs");
-  
+  const { blogs, fails, loads } = Axioscustom("http://localhost:8000/blogs");
+
+  const [judul, setJudul] = useState("");
+  const [isi, setIsi] = useState("");
+
+  const handleJudul = (e) => {
+    setJudul(e.target.value);
+  };
+
+  const handleIsi = (e) => {
+    setIsi(e.target.value);
+  };
+
+  const handleAdd = async (e) => {
+    e.preventDefault();
+    const body = { judul, isi };
+    try {
+      await api.post("http://localhost:8000/blogs", body);
+      setJudul("");
+      setIsi("");
+      Swal.fire({
+        icon: "success",
+        title: "Berhasil menambahkan Blogs",
+      });
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 1500);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: error.message,
+      });
+    }
+  };
+
   return (
     <div className="App">
       <Router>
@@ -19,9 +55,20 @@ function App() {
             path="/"
             element={<Home blogs={blogs} fails={fails} loads={loads} />}
           />
-          <Route path="/add" element={<Add />} />
+          <Route
+            path="/add"
+            element={
+              <Add
+                judul={judul}
+                isi={isi}
+                handleJudul={handleJudul}
+                handleIsi={handleIsi}
+                handleAdd={handleAdd}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
-          <Route path="/blogs/:id" element={<Details />} />
+          <Route path="/blogs/:id" element={<Detail />} />
           <Route path="/edit/:id" element={<Edit />} />
         </Routes>
       </Router>

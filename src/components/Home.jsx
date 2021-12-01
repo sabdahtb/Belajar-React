@@ -1,33 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Home = ({ blogs, loads, fails }) => {
+export default function Home({ blogs, fails, loads }) {
   return (
     <div className="components">
-      <h2 className="judul">Kumpulan BLOG</h2>
+      <h2>React Blogs</h2>
 
-      {loads && (
-        <div className="card">
-          <h2>Loading...</h2>
-        </div>
-      )}
+      {loads && <h2>Loading...</h2>}
 
-      {fails && (
-        <div className="card">
-          <h1>Failed</h1>
-          <h3>{fails}</h3>
-        </div>
-      )}
+      {fails && <h2>{fails}</h2>}
 
       {blogs &&
         blogs.map((blog) => (
           <div className="card" key={blog.id}>
             <Link to={`/blogs/${blog.id}`}>
               <h2>{blog.judul}</h2>
-              <h5>klik untuk baca...</h5>
+              <h5>baca selengkapnya...</h5>
             </Link>
           </div>
         ))}
     </div>
   );
-};
+}

@@ -1,18 +1,18 @@
+import React from "react";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import Axioscustom from "../hooks/Axioscustom";
 import api from "../api/blogs";
-import Axiosxustom from "../hooks/Axiosxustom";
+import Swal from "sweetalert2";
 
-export default function Details() {
+export default function Detail() {
   const { id } = useParams();
-  const navigate = useNavigate();
-
-  const { blogs, fails, loads } = Axiosxustom(
+  const { blogs, fails, loads } = Axioscustom(
     "http://localhost:8000/blogs/" + id
   );
+  const navigate = useNavigate();
 
-  const handleDelete = () => {
+  const handleHapus = (e) => {
     Swal.fire({
       title: "Yakin ?",
       text: "Data akan dihapus permanen!",
@@ -39,29 +39,18 @@ export default function Details() {
 
   return (
     <div className="components">
-      {loads && (
-        <div className="card">
-          <h2>Loading...</h2>
-        </div>
-      )}
+      {loads && <h2>Loading...</h2>}
 
-      {fails && (
-        <div className="card">
-          <h1>Failed</h1>
-          <h3>{fails}</h3>
-        </div>
-      )}
+      {fails && <h2>{fails}</h2>}
 
       {blogs && (
         <div className="det">
-          <h2> Judul : {blogs.judul}</h2>
-          <br />
-          <h2>Sinopsis</h2>
+          <h2>{blogs.judul}</h2>
           <h5>{blogs.isi}</h5>
           <Link to={`/edit/${blogs.id}`}>
             <button className="edit">Edit</button>
           </Link>
-          <button className="hapus" onClick={handleDelete}>
+          <button className="hapus" onClick={handleHapus}>
             Hapus
           </button>
         </div>

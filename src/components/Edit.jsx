@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router";
-import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
 import api from "../api/blogs";
+import { useParams } from "react-router";
+import Swal from "sweetalert2";
 
 export default function Edit() {
+  const { id } = useParams();
+
   const [judul, setJudul] = useState("");
   const [isi, setIsi] = useState("");
-  const { id } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchBlogs = async () => {
+    const fetchData = async () => {
       try {
-        const response = await api.get("./blogs/" + id);
+        const response = await api.get("/blogs/" + id);
         setJudul(response.data.judul);
         setIsi(response.data.isi);
       } catch (error) {
@@ -20,7 +20,7 @@ export default function Edit() {
       }
     };
 
-    fetchBlogs();
+    fetchData();
   }, [id]);
 
   const handleJudul = (e) => {
@@ -31,17 +31,14 @@ export default function Edit() {
     setIsi(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
     const body = { judul: judul, isi: isi };
     try {
-      await api.put("/blogs/" + id, body);
-      setJudul("");
-      setIsi("");
-      navigate("/");
+      api.put("/blogs/" + id, body);
       Swal.fire({
         icon: "success",
-        title: "Berhasil mengedit data!",
+        title: "Berhasil mengedit data",
       });
       setTimeout(() => {
         window.location.reload(true);
@@ -52,9 +49,10 @@ export default function Edit() {
   };
 
   return (
-    <div className="add">
-      <h2 className="judul">Edit Blog</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="components">
+      <h2 className="formTambah">Edit Blog</h2>
+
+      <form className="formTambah" onSubmit={handleEdit}>
         <label>Judul</label>
         <input type="text" name="judul" value={judul} onChange={handleJudul} />
         <label>Isi</label>
@@ -64,7 +62,7 @@ export default function Edit() {
           rows="10"
           value={isi}
           onChange={handleIsi}
-        ></textarea>
+        />
         <button>Edit</button>
       </form>
     </div>
